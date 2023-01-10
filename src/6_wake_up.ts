@@ -1,5 +1,6 @@
-import { endAdventure, haveAdventures } from '..';
+import { endAdventure /*haveAdventures*/ } from '..';
 import { askQuestion, clear, print } from '../console';
+import { viewSurroundings } from './7_where_am_i';
 
 // This is a very unusual type setup. It's pobably not a great idea in the real world to nest so many properties
 // with the exact same name. But in Wonderland, this sort of thing is normal, so we've just got to find a way through it...
@@ -34,13 +35,15 @@ export function wakeUp(): void {
 			'✅ CONGRATULATIONS! You successfully made it through Wonderland! 🥳'
 		);
 
-		return askQuestion(
+		return askQuestion('Press ENTER to continue! ', viewSurroundings)
+		/*return askQuestion(
 			'Press ENTER to re-enter Wonderland! ',
 			haveAdventures
-		);
+		);*/
 	} else {
 		print('You are unable to wake up! 😱');
 		return endAdventure();
+		//return askQuestion('Press ENTER to continue! ', viewSurroundings)
 	}
 }
 
